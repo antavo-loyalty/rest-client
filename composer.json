@@ -1,0 +1,18 @@
+{
+  "name": "antavo/rest-client",
+  "description": "A rather straightforward and lightweight, yet flexible helper class to perform operations on a RESTful API with cURL",
+  "license": "GPL-2.0",
+  "require": {
+    "php": ">=5.3",
+    "ext-curl": "*"
+  },
+  "require-dev": {
+    "apigen/apigen": "*",
+    "phpunit/phpunit": "4.8.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Antavo\\RestClient\\": "src/"
+    }
+  }
+}
