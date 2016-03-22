@@ -181,6 +181,28 @@ class RestClient {
     }
 
     /**
+     * Returns set value of cURL option.
+     *
+     * @param int $option
+     * @return mixed  Option value or <tt>NULL</tt> if it's not set.
+     */
+    public function getCurlOption($option) {
+        if (isset($this->curl_options[$option])) {
+            return $this->curl_options[$option];
+        }
+        return NULL;
+    }
+
+    /**
+     * Returns default cURL options.
+     *
+     * @return array
+     */
+    public function getCurlOptions() {
+        return $this->curl_options;
+    }
+
+    /**
      * Returns the last error occurred during processing the response.
      *
      * @return \Antavo\RestClient\Exceptions\Exception  Returns <tt>NULL</tt>
