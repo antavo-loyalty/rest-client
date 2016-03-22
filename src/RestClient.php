@@ -27,6 +27,11 @@ class RestClient {
     protected $curl_options = array();
 
     /**
+     * @var string
+     */
+    protected $last_request;
+
+    /**
      * @var mixed
      */
     protected $last_result;
@@ -109,7 +114,9 @@ class RestClient {
         }
 
         // Setting up cURL for a POST request.
+        $this->last_request = NULL;
         if ('POST' == $method || 'PUT' == $method) {
+            $this->last_request = $data;
             if (strlen($data)) {
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             }
@@ -210,6 +217,15 @@ class RestClient {
      */
     public function getLastError() {
         return $this->last_error;
+    }
+
+    /**
+     * Returns body of the last request.
+     *
+     * @return string
+     */
+    public function getLastRequest() {
+        return $this->last_request;
     }
 
     /**
